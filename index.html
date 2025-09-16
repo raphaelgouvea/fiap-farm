@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIAP Farm - Sistema de Gestão Agrícola</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-seedling"></i>
+                    <h1>FIAP Farm</h1>
+                </div>
+                <div class="subtitle">
+                    <p>Sistema de Gestão Agrícola Digital</p>
+                    <span class="company">FarmTech Solutions</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="culturas">
+                <i class="fas fa-leaf"></i>
+                <span>Gerenciar Culturas</span>
+            </button>
+            <button class="tab-button" data-tab="area">
+                <i class="fas fa-calculator"></i>
+                <span>Calcular Área</span>
+            </button>
+            <button class="tab-button" data-tab="insumos">
+                <i class="fas fa-flask"></i>
+                <span>Manejo de Insumos</span>
+            </button>
+            <button class="tab-button" data-tab="dados">
+                <i class="fas fa-database"></i>
+                <span>Gerenciar Dados</span>
+            </button>
+            <button class="tab-button" data-tab="relatorios">
+                <i class="fas fa-chart-bar"></i>
+                <span>Relatórios</span>
+            </button>
+            <button class="tab-button" data-tab="vetores">
+                <i class="fas fa-list-ol"></i>
+                <span>Dados em Vetores</span>
+            </button>
+            <button class="tab-button" data-tab="loops">
+                <i class="fas fa-sync-alt"></i>
+                <span>Loops e Decisões</span>
+            </button>
+            <button class="tab-button" data-tab="estatisticas">
+                <i class="fas fa-chart-line"></i>
+                <span>Estatísticas R</span>
+            </button>
+            <button class="tab-button" data-tab="meteorologia">
+                <i class="fas fa-cloud-sun"></i>
+                <span>API Meteorológica R</span>
+            </button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="tab-content">
+            <!-- Aba 1: Gerenciar Culturas -->
+            <div class="tab-panel active" id="culturas">
+                <div class="panel-header">
+                    <h2><i class="fas fa-leaf"></i> Gerenciar Culturas</h2>
+                    <p>Selecione e configure as culturas da sua fazenda</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="farm-selection">
+                        <h3>Fazendas Disponíveis</h3>
+                        <div class="farm-cards">
+                            <div class="farm-card" data-farm="arcanjo">
+                                <div class="farm-icon">
+                                    <i class="fas fa-orange"></i>
+                                </div>
+                                <div class="farm-info">
+                                    <h4>Fazenda Arcanjo Miguel</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> São Miguel Arcanjo, SP</p>
+                                    <p><i class="fas fa-seedling"></i> Cultura: Laranja</p>
+                                    <span class="farm-status active">Ativa</span>
+                                </div>
+                            </div>
+                            
+                            <div class="farm-card" data-farm="barra">
+                                <div class="farm-icon">
+                                    <i class="fas fa-wheat-awn"></i>
+                                </div>
+                                <div class="farm-info">
+                                    <h4>Fazenda Barra Grande</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> Itirapuã, SP</p>
+                                    <p><i class="fas fa-seedling"></i> Cultura: Cana-de-Açúcar</p>
+                                    <span class="farm-status active">Ativa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="selected-farm-details">
+                        <h3>Detalhes da Fazenda Selecionada</h3>
+                        <div class="farm-details-content">
+                            <p>Selecione uma fazenda acima para ver os detalhes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de Código -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h4><i class="fas fa-code"></i> Código Python - Gerenciamento de Culturas</h4>
+                        <button class="copy-btn" onclick="copyCode('culturas-code')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="code-block" id="culturas-code"><code class="language-python"># Classe para gerenciamento de culturas
+class CulturaManager:
+    def __init__(self):
+        self.fazendas = {
+            "arcanjo": {
+                "nome": "Fazenda Arcanjo Miguel",
+                "localizacao": "São Miguel Arcanjo, SP",
+                "cultura": "Laranja",
+                "coordenadas": (-23.8775, -47.9969),
+                "area_total": 150.5,
+                "status": "ativa"
+            },
+            "barra": {
+                "nome": "Fazenda Barra Grande",
+                "localizacao": "Itirapuã, SP",
+                "cultura": "Cana-de-Açúcar",
+                "coordenadas": (-23.7234, -47.8456),
+                "area_total": 280.3,
+                "status": "ativa"
+            }
+        }
+    
+    def listar_fazendas(self):
+        """Lista todas as fazendas cadastradas"""
+        for codigo, fazenda in self.fazendas.items():
+            print(f"Código: {codigo}")
+            print(f"Nome: {fazenda['nome']}")
+            print(f"Localização: {fazenda['localizacao']}")
+            print(f"Cultura: {fazenda['cultura']}")
+            print(f"Status: {fazenda['status']}")
+            print("-" * 40)
+    
+    def selecionar_fazenda(self, codigo):
+        """Seleciona uma fazenda específica"""
+        if codigo in self.fazendas:
+            return self.fazendas[codigo]
+        return None
+    
+    def obter_detalhes_cultura(self, cultura):
+        """Retorna informações específicas da cultura"""
+        culturas_info = {
+            "Laranja": {
+                "ciclo": "Perene",
+                "colheita": "Maio a Setembro",
+                "irrigacao": "Necessária",
+                "ph_ideal": "6.0 - 7.0"
+            },
+            "Cana-de-Açúcar": {
+                "ciclo": "12-18 meses",
+                "colheita": "Abril a Novembro",
+                "irrigacao": "Opcional",
+                "ph_ideal": "5.5 - 6.5"
+            }
+        }
+        return culturas_info.get(cultura, {})</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 2: Calcular Área -->
+            <div class="tab-panel" id="area">
+                <div class="panel-header">
+                    <h2><i class="fas fa-calculator"></i> Calcular Área de Plantio</h2>
+                    <p>Calcule a área de plantio para quadrados e retângulos</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="calculation-form">
+                        <div class="form-group">
+                            <label for="area-type">Tipo de Área:</label>
+                            <select id="area-type" onchange="toggleAreaInputs()">
+                                <option value="quadrado">Quadrado</option>
+                                <option value="retangulo">Retângulo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lado">Lado (metros):</label>
+                                <input type="number" id="lado" placeholder="Digite o lado em metros" step="0.01">
+                            </div>
+                            
+                            <div class="form-group" id="altura-group" style="display: none;">
+                                <label for="altura">Altura (metros):</label>
+                                <input type="number" id="altura" placeholder="Digite a altura em metros" step="0.01">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="calcularArea()">Calcular Área</button>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h3>Resultado do Cálculo</h3>
+                        <div class="result-display" id="area-result">
+                            <p>Preencha os campos acima e clique em "Calcular Área"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de Código -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h4><i class="fas fa-code"></i> Código Python - Cálculo de Área</h4>
+                        <button class="copy-btn" onclick="copyCode('area-code')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="code-block" id="area-code"><code class="language-python"># Classe para cálculo de área de plantio
+class AreaCalculator:
+    def __init__(self):
+        self.historico_calculos = []
+    
+    def calcular_area_quadrado(self, lado):
+        """Calcula área de um quadrado"""
+        if lado <= 0:
+            raise ValueError("O lado deve ser maior que zero")
+        
+        area_m2 = lado ** 2
+        area_hectares = area_m2 / 10000
+        
+        calculo = {
+            "tipo": "quadrado",
+            "lado": lado,
+            "area_m2": area_m2,
+            "area_hectares": area_hectares,
+            "perimetro": 4 * lado
+        }
+        
+        self.historico_calculos.append(calculo)
+        return calculo
+    
+    def calcular_area_retangulo(self, largura, altura):
+        """Calcula área de um retângulo"""
+        if largura <= 0 or altura <= 0:
+            raise ValueError("Largura e altura devem ser maiores que zero")
+        
+        area_m2 = largura * altura
+        area_hectares = area_m2 / 10000
+        
+        calculo = {
+            "tipo": "retangulo",
+            "largura": largura,
+            "altura": altura,
+            "area_m2": area_m2,
+            "area_hectares": area_hectares,
+            "perimetro": 2 * (largura + altura)
+        }
+        
+        self.historico_calculos.append(calculo)
+        return calculo
+    
+    def exibir_resultado(self, calculo):
+        """Exibe o resultado formatado"""
+        print(f"\n{'='*50}")
+        print(f"RESULTADO DO CÁLCULO DE ÁREA")
+        print(f"{'='*50}")
+        print(f"Tipo: {calculo['tipo'].title()}")
+        
+        if calculo['tipo'] == 'quadrado':
+            print(f"Lado: {calculo['lado']:.2f} metros")
+        else:
+            print(f"Largura: {calculo['largura']:.2f} metros")
+            print(f"Altura: {calculo['altura']:.2f} metros")
+        
+        print(f"Área: {calculo['area_m2']:.2f} m²")
+        print(f"Área: {calculo['area_hectares']:.4f} hectares")
+        print(f"Perímetro: {calculo['perimetro']:.2f} metros")
+        print(f"{'='*50}")
+    
+    def obter_historico(self):
+        """Retorna histórico de cálculos"""
+        return self.historico_calculos</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 3: Manejo de Insumos -->
+            <div class="tab-panel" id="insumos">
+                <div class="panel-header">
+                    <h2><i class="fas fa-flask"></i> Manejo de Insumos</h2>
+                    <p>Calcule a quantidade necessária de corretivos, fertilizantes e defensivos</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="insumo-selection">
+                        <div class="form-group">
+                            <label for="insumo-type">Tipo de Insumo:</label>
+                            <select id="insumo-type" onchange="updateInsumoOptions()">
+                                <option value="corretivo">Corretivos</option>
+                                <option value="fertilizante">Fertilizantes</option>
+                                <option value="defensivo">Defensivos</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="insumo-produto">Produto:</label>
+                            <select id="insumo-produto">
+                                <option value="calcario">Calcário</option>
+                                <option value="gesso">Gesso Agrícola</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="area-plantio">Área de Plantio (hectares):</label>
+                                <input type="number" id="area-plantio" placeholder="Digite a área em hectares" step="0.01">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="intensidade">Intensidade de Aplicação:</label>
+                                <select id="intensidade">
+                                    <option value="minima">Mínima</option>
+                                    <option value="media">Média</option>
+                                    <option value="maxima">Máxima</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="calcularInsumo()">Calcular Insumo</button>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h3>Resultado do Cálculo</h3>
+                        <div class="result-display" id="insumo-result">
+                            <p>Preencha os campos acima e clique em "Calcular Insumo"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de Código -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h4><i class="fas fa-code"></i> Código Python - Manejo de Insumos</h4>
+                        <button class="copy-btn" onclick="copyCode('insumos-code')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="code-block" id="insumos-code"><code class="language-python"># Classe para cálculo de manejo de insumos
+class InsumoCalculator:
+    def __init__(self):
+        self.insumos_config = {
+            "corretivos": {
+                "calcario": {
+                    "nome": "Calcário",
+                    "unidade": "t/ha",
+                    "dosagem": {"minima": 1.5, "media": 2.0, "maxima": 3.0},
+                    "preco_medio": 120.0
+                },
+                "gesso": {
+                    "nome": "Gesso Agrícola",
+                    "unidade": "t/ha",
+                    "dosagem": {"minima": 1.0, "media": 1.5, "maxima": 2.0},
+                    "preco_medio": 180.0
+                }
+            },
+            "fertilizantes": {
+                "fosforo": {
+                    "nome": "Fósforo (P2O5)",
+                    "unidade": "kg/ha",
+                    "dosagem": {"minima": 80, "media": 115, "maxima": 150},
+                    "preco_medio": 4.50
+                },
+                "potassio": {
+                    "nome": "Potássio (K2O)",
+                    "unidade": "kg/ha",
+                    "dosagem": {"minima": 150, "media": 200, "maxima": 250},
+                    "preco_medio": 3.20
+                }
+            },
+            "defensivos": {
+                "inseticida": {
+                    "nome": "Inseticida",
+                    "unidade": "L/ha",
+                    "dosagem": {"minima": 1.5, "media": 2.0, "maxima": 2.5},
+                    "aplicacoes": {"minima": 4, "media": 6, "maxima": 8},
+                    "preco_medio": 85.0
+                },
+                "fungicida": {
+                    "nome": "Fungicida",
+                    "unidade": "L/ha",
+                    "dosagem": {"minima": 1.0, "media": 1.5, "maxima": 2.0},
+                    "aplicacoes": {"minima": 3, "media": 5, "maxima": 7},
+                    "preco_medio": 95.0
+                }
+            }
+        }
+    
+    def calcular_insumo(self, tipo, produto, area_hectares, intensidade):
+        """Calcula quantidade e custo de insumo"""
+        if tipo not in self.insumos_config:
+            raise ValueError(f"Tipo de insumo '{tipo}' não encontrado")
+        
+        if produto not in self.insumos_config[tipo]:
+            raise ValueError(f"Produto '{produto}' não encontrado em {tipo}")
+        
+        config = self.insumos_config[tipo][produto]
+        dosagem_por_ha = config["dosagem"][intensidade]
+        quantidade_total = dosagem_por_ha * area_hectares
+        custo_total = quantidade_total * config["preco_medio"]
+        
+        resultado = {
+            "tipo": tipo,
+            "produto": config["nome"],
+            "area": area_hectares,
+            "intensidade": intensidade,
+            "dosagem_por_ha": dosagem_por_ha,
+            "unidade": config["unidade"],
+            "quantidade_total": quantidade_total,
+            "preco_unitario": config["preco_medio"],
+            "custo_total": custo_total
+        }
+        
+        # Para defensivos, calcular aplicações
+        if tipo == "defensivos" and "aplicacoes" in config:
+            num_aplicacoes = config["aplicacoes"][intensidade]
+            resultado["aplicacoes"] = num_aplicacoes
+            resultado["quantidade_por_aplicacao"] = quantidade_total / num_aplicacoes
+        
+        return resultado
+    
+    def exibir_resultado_insumo(self, resultado):
+        """Exibe resultado formatado"""
+        print(f"\n{'='*60}")
+        print(f"CÁLCULO DE INSUMO - {resultado['produto'].upper()}")
+        print(f"{'='*60}")
+        print(f"Tipo: {resultado['tipo'].title()}")
+        print(f"Área: {resultado['area']:.2f} hectares")
+        print(f"Intensidade: {resultado['intensidade'].title()}")
+        print(f"Dosagem por hectare: {resultado['dosagem_por_ha']:.2f} {resultado['unidade']}")
+        print(f"Quantidade total: {resultado['quantidade_total']:.2f} {resultado['unidade']}")
+        
+        if 'aplicacoes' in resultado:
+            print(f"Número de aplicações: {resultado['aplicacoes']}")
+            print(f"Quantidade por aplicação: {resultado['quantidade_por_aplicacao']:.2f} {resultado['unidade']}")
+        
+        print(f"Preço unitário: R$ {resultado['preco_unitario']:.2f}")
+        print(f"Custo total: R$ {resultado['custo_total']:.2f}")
+        print(f"{'='*60}")</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 4: Gerenciar Dados -->
+            <div class="tab-panel" id="dados">
+                <div class="panel-header">
+                    <h2><i class="fas fa-database"></i> Gerenciar Dados (CRUD)</h2>
+                    <p>Criar, visualizar, atualizar e deletar registros do sistema</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="crud-operations">
+                        <div class="operation-buttons">
+                            <button class="btn-success" onclick="showCreateForm()">Criar Registro</button>
+                            <button class="btn-info" onclick="showReadData()">Visualizar Dados</button>
+                            <button class="btn-warning" onclick="showUpdateForm()">Atualizar Registro</button>
+                            <button class="btn-danger" onclick="showDeleteForm()">Deletar Registro</button>
+                        </div>
+                        
+                        <div class="operation-content" id="crud-content">
+                            <p>Selecione uma operação acima para começar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de Código -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h4><i class="fas fa-code"></i> Código Python - Gerenciamento de Dados (CRUD)</h4>
+                        <button class="copy-btn" onclick="copyCode('dados-code')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="code-block" id="dados-code"><code class="language-python"># Classe para gerenciamento de dados (CRUD)
+class DataManager:
+    def __init__(self):
+        self.dados_plantio = []
+        self.dados_insumos = []
+        self.contador_id = 1
+    
+    def criar_registro_plantio(self, fazenda, cultura, area, tipo_area, dimensoes):
+        """Cria um novo registro de plantio (CREATE)"""
+        registro = {
+            "id": self.contador_id,
+            "fazenda": fazenda,
+            "cultura": cultura,
+            "area_hectares": area,
+            "tipo_area": tipo_area,
+            "dimensoes": dimensoes,
+            "data_criacao": self._obter_timestamp()
+        }
+        
+        self.dados_plantio.append(registro)
+        self.contador_id += 1
+        return registro
+    
+    def criar_registro_insumo(self, fazenda, tipo_insumo, produto, quantidade, custo):
+        """Cria um novo registro de insumo (CREATE)"""
+        registro = {
+            "id": self.contador_id,
+            "fazenda": fazenda,
+            "tipo_insumo": tipo_insumo,
+            "produto": produto,
+            "quantidade": quantidade,
+            "custo": custo,
+            "data_criacao": self._obter_timestamp()
+        }
+        
+        self.dados_insumos.append(registro)
+        self.contador_id += 1
+        return registro
+    
+    def listar_registros(self, tipo="todos"):
+        """Lista registros (READ)"""
+        if tipo == "plantio":
+            return self.dados_plantio
+        elif tipo == "insumos":
+            return self.dados_insumos
+        else:
+            return {
+                "plantio": self.dados_plantio,
+                "insumos": self.dados_insumos
+            }
+    
+    def buscar_por_id(self, registro_id, tipo):
+        """Busca registro por ID (READ)"""
+        dados = self.dados_plantio if tipo == "plantio" else self.dados_insumos
+        
+        for registro in dados:
+            if registro["id"] == registro_id:
+                return registro
+        return None
+    
+    def atualizar_registro(self, registro_id, tipo, novos_dados):
+        """Atualiza um registro existente (UPDATE)"""
+        dados = self.dados_plantio if tipo == "plantio" else self.dados_insumos
+        
+        for i, registro in enumerate(dados):
+            if registro["id"] == registro_id:
+                # Preserva ID e data de criação
+                novos_dados["id"] = registro_id
+                novos_dados["data_criacao"] = registro["data_criacao"]
+                novos_dados["data_atualizacao"] = self._obter_timestamp()
+                
+                dados[i] = novos_dados
+                return dados[i]
+        
+        return None
+    
+    def deletar_registro(self, registro_id, tipo):
+        """Deleta um registro (DELETE)"""
+        dados = self.dados_plantio if tipo == "plantio" else self.dados_insumos
+        
+        for i, registro in enumerate(dados):
+            if registro["id"] == registro_id:
+                return dados.pop(i)
+        
+        return None
+    
+    def obter_estatisticas(self):
+        """Retorna estatísticas dos dados"""
+        total_plantio = len(self.dados_plantio)
+        total_insumos = len(self.dados_insumos)
+        
+        area_total = sum(r["area_hectares"] for r in self.dados_plantio)
+        custo_total = sum(r["custo"] for r in self.dados_insumos)
+        
+        return {
+            "total_registros_plantio": total_plantio,
+            "total_registros_insumos": total_insumos,
+            "area_total_hectares": area_total,
+            "custo_total_insumos": custo_total
+        }
+    
+    def _obter_timestamp(self):
+        """Retorna timestamp atual"""
+        from datetime import datetime
+        return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    
+    def exportar_dados(self, formato="json"):
+        """Exporta dados para arquivo"""
+        dados_completos = {
+            "plantio": self.dados_plantio,
+            "insumos": self.dados_insumos,
+            "estatisticas": self.obter_estatisticas(),
+            "data_exportacao": self._obter_timestamp()
+        }
+        
+        if formato == "json":
+            import json
+            with open("fiap_farm_dados.json", "w", encoding="utf-8") as f:
+                json.dump(dados_completos, f, indent=2, ensure_ascii=False)
+            return "fiap_farm_dados.json"
+        
+        return None</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 5: Relatórios -->
+            <div class="tab-panel" id="relatorios">
+                <div class="panel-header">
+                    <h2><i class="fas fa-chart-bar"></i> Relatórios</h2>
+                    <p>Visualize relatórios e estatísticas do sistema</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="report-options">
+                        <div class="report-cards">
+                            <div class="report-card" onclick="generateReport('plantio')">
+                                <div class="report-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h4>Relatório de Plantio</h4>
+                                <p>Estatísticas de área e culturas</p>
+                            </div>
+                            
+                            <div class="report-card" onclick="generateReport('insumos')">
+                                <div class="report-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h4>Relatório de Insumos</h4>
+                                <p>Custos e quantidades utilizadas</p>
+                            </div>
+                            
+                            <div class="report-card" onclick="generateReport('geral')">
+                                <div class="report-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h4>Relatório Geral</h4>
+                                <p>Visão completa da fazenda</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-content" id="report-display">
+                        <p>Selecione um tipo de relatório acima para visualizar</p>
+                    </div>
+                </div>
+
+                <!-- Caixa de Código -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h4><i class="fas fa-code"></i> Código Python - Sistema de Relatórios</h4>
+                        <button class="copy-btn" onclick="copyCode('relatorios-code')">
+                            <i class="fas fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <pre class="code-block" id="relatorios-code"><code class="language-python"># Classe para geração de relatórios
+class RelatorioManager:
+    def __init__(self, data_manager):
+        self.data_manager = data_manager
+    
+    def gerar_relatorio_plantio(self):
+        """Gera relatório detalhado de plantio"""
+        dados = self.data_manager.listar_registros("plantio")
+        
+        if not dados:
+            return "Nenhum dado de plantio encontrado."
+        
+        # Estatísticas básicas
+        total_registros = len(dados)
+        area_total = sum(r["area_hectares"] for r in dados)
+        area_media = area_total / total_registros if total_registros > 0 else 0
+        
+        # Agrupamento por cultura
+        culturas = {}
+        for registro in dados:
+            cultura = registro["cultura"]
+            if cultura not in culturas:
+                culturas[cultura] = {"registros": 0, "area": 0}
+            culturas[cultura]["registros"] += 1
+            culturas[cultura]["area"] += registro["area_hectares"]
+        
+        # Formatação do relatório
+        relatorio = f"""
+{'='*60}
+           RELATÓRIO DE PLANTIO - FIAP FARM
+                FarmTech Solutions
+{'='*60}
+
+--- RESUMO GERAL ---
+Total de registros: {total_registros}
+Área total: {area_total:.4f} hectares
+Área média por registro: {area_media:.4f} hectares
+
+--- DISTRIBUIÇÃO POR CULTURA ---
+"""
+        
+        for cultura, info in culturas.items():
+            percentual = (info["area"] / area_total * 100) if area_total > 0 else 0
+            relatorio += f"""
+Cultura: {cultura}
+  Registros: {info["registros"]}
+  Área: {info["area"]:.4f} hectares ({percentual:.1f}%)
+"""
+        
+        relatorio += f"\n{'='*60}\n"
+        return relatorio
+    
+    def gerar_relatorio_insumos(self):
+        """Gera relatório detalhado de insumos"""
+        dados = self.data_manager.listar_registros("insumos")
+        
+        if not dados:
+            return "Nenhum dado de insumo encontrado."
+        
+        # Estatísticas básicas
+        total_registros = len(dados)
+        custo_total = sum(r["custo"] for r in dados)
+        custo_medio = custo_total / total_registros if total_registros > 0 else 0
+        
+        # Agrupamento por tipo
+        tipos_insumo = {}
+        for registro in dados:
+            tipo = registro["tipo_insumo"]
+            if tipo not in tipos_insumo:
+                tipos_insumo[tipo] = {"registros": 0, "custo": 0, "quantidade": 0}
+            tipos_insumo[tipo]["registros"] += 1
+            tipos_insumo[tipo]["custo"] += registro["custo"]
+            tipos_insumo[tipo]["quantidade"] += registro["quantidade"]
+        
+        # Formatação do relatório
+        relatorio = f"""
+{'='*60}
+           RELATÓRIO DE INSUMOS - FIAP FARM
+                FarmTech Solutions
+{'='*60}
+
+--- RESUMO GERAL ---
+Total de registros: {total_registros}
+Custo total: R$ {custo_total:.2f}
+Custo médio por registro: R$ {custo_medio:.2f}
+
+--- DISTRIBUIÇÃO POR TIPO ---
+"""
+        
+        for tipo, info in tipos_insumo.items():
+            percentual = (info["custo"] / custo_total * 100) if custo_total > 0 else 0
+            relatorio += f"""
+Tipo: {tipo.title()}
+  Registros: {info["registros"]}
+  Quantidade total: {info["quantidade"]:.2f}
+  Custo total: R$ {info["custo"]:.2f} ({percentual:.1f}%)
+"""
+        
+        relatorio += f"\n{'='*60}\n"
+        return relatorio
+    
+    def gerar_relatorio_geral(self):
+        """Gera relatório geral do sistema"""
+        stats = self.data_manager.obter_estatisticas()
+        
+        relatorio = f"""
+{'='*60}
+           RELATÓRIO GERAL - FIAP FARM
+                FarmTech Solutions
+{'='*60}
+
+--- ESTATÍSTICAS GERAIS ---
+Total de registros de plantio: {stats['total_registros_plantio']}
+Total de registros de insumos: {stats['total_registros_insumos']}
+Área total cultivada: {stats['area_total_hectares']:.4f} hectares
+Custo total em insumos: R$ {stats['custo_total_insumos']:.2f}
+
+--- ANÁLISES ---
+"""
+        
+        # Análises adicionais
+        if stats['area_total_hectares'] > 0:
+            custo_por_hectare = stats['custo_total_insumos'] / stats['area_total_hectares']
+            relatorio += f"Custo médio por hectare: R$ {custo_por_hectare:.2f}\n"
+        
+        if stats['total_registros_plantio'] > 0:
+            area_media = stats['area_total_hectares'] / stats['total_registros_plantio']
+            relatorio += f"Área média por plantio: {area_media:.4f} hectares\n"
+        
+        relatorio += f"\n{'='*60}\n"
+        return relatorio
+    
+    def exportar_relatorio(self, tipo_relatorio, formato="txt"):
+        """Exporta relatório para arquivo"""
+        if tipo_relatorio == "plantio":
+            conteudo = self.gerar_relatorio_plantio()
+        elif tipo_relatorio == "insumos":
+            conteudo = self.gerar_relatorio_insumos()
+        elif tipo_relatorio == "geral":
+            conteudo = self.gerar_relatorio_geral()
+        else:
+            return None
+        
+        nome_arquivo = f"relatorio_{tipo_relatorio}.{formato}"
+        
+        with open(nome_arquivo, "w", encoding="utf-8") as f:
+            f.write(conteudo)
+        
+        return nome_arquivo</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 4: Dados em Vetores -->
+            <div class="tab-panel" id="vetores">
+                <div class="panel-header">
+                    <h2><i class="fas fa-list-ol"></i> Organização de Dados em Vetores</h2>
+                    <p>Estruture os dados da fazenda em vetores para análise eficiente</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="vector-operations">
+                        <div class="form-group">
+                            <label for="data-type">Tipo de Dados:</label>
+                            <select id="data-type" onchange="updateVectorForm()">
+                                <option value="producao">Produção por Hectare</option>
+                                <option value="custos">Custos de Insumos</option>
+                                <option value="areas">Áreas de Plantio</option>
+                                <option value="temperaturas">Temperaturas Mensais</option>
+                            </select>
+                        </div>
+                        
+                        <div id="vector-form">
+                            <div class="input-grid">
+                                <input type="number" placeholder="Valor 1" class="vector-input">
+                                <input type="number" placeholder="Valor 2" class="vector-input">
+                                <input type="number" placeholder="Valor 3" class="vector-input">
+                                <input type="number" placeholder="Valor 4" class="vector-input">
+                                <input type="number" placeholder="Valor 5" class="vector-input">
+                                <input type="number" placeholder="Valor 6" class="vector-input">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="processVectorData()">🔄 Processar Dados</button>
+                        
+                        <div id="vector-results" class="results-container">
+                            <!-- Resultados serão exibidos aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3><i class="fas fa-code"></i> Código Python - Organização em Vetores</h3>
+                        <button class="copy-btn" onclick="copyCode('vector-code')">📋 Copiar</button>
+                    </div>
+                    <pre><code id="vector-code"># FIAP Farm - Organização de Dados em Vetores
+import numpy as np
+import pandas as pd
+from datetime import datetime
+
+class VectorDataManager:
+    def __init__(self):
+        self.data_vectors = {}
+        
+    def create_production_vector(self, fazenda_data):
+        """Cria vetor de produção por hectare"""
+        producao = np.array([
+            fazenda_data['laranja_ton_ha'],
+            fazenda_data['cana_ton_ha'],
+            fazenda_data['milho_ton_ha']
+        ])
+        
+        culturas = np.array(['Laranja', 'Cana-de-Açúcar', 'Milho'])
+        
+        return {
+            'producao': producao,
+            'culturas': culturas,
+            'media_producao': np.mean(producao),
+            'max_producao': np.max(producao),
+            'min_producao': np.min(producao)
+        }
+    
+    def create_cost_vector(self, insumos_data):
+        """Cria vetor de custos de insumos"""
+        custos = np.array([
+            insumos_data['calcario'],
+            insumos_data['fosforo'],
+            insumos_data['potassio'],
+            insumos_data['inseticida']
+        ])
+        
+        insumos = np.array(['Calcário', 'Fósforo', 'Potássio', 'Inseticida'])
+        
+        return {
+            'custos': custos,
+            'insumos': insumos,
+            'custo_total': np.sum(custos),
+            'custo_medio': np.mean(custos),
+            'percentual': (custos / np.sum(custos)) * 100
+        }
+    
+    def analyze_vectors(self, vector_data):
+        """Análise estatística dos vetores"""
+        if 'producao' in vector_data:
+            data = vector_data['producao']
+        elif 'custos' in vector_data:
+            data = vector_data['custos']
+        
+        return {
+            'media': np.mean(data),
+            'mediana': np.median(data),
+            'desvio_padrao': np.std(data),
+            'variancia': np.var(data),
+            'coef_variacao': (np.std(data) / np.mean(data)) * 100
+        }
+
+# Exemplo de uso
+if __name__ == "__main__":
+    manager = VectorDataManager()
+    
+    fazenda_data = {
+        'laranja_ton_ha': 25.5,
+        'cana_ton_ha': 85.2,
+        'milho_ton_ha': 8.7
+    }
+    
+    prod_vector = manager.create_production_vector(fazenda_data)
+    print(f"Produção Média: {prod_vector['media_producao']:.2f} ton/ha")</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 6: Loops e Decisões -->
+            <div class="tab-panel" id="loops">
+                <div class="panel-header">
+                    <h2><i class="fas fa-sync-alt"></i> Rotinas de Loop e Decisão</h2>
+                    <p>Implemente lógicas de decisão e loops para automatizar análises da fazenda</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="loop-operations">
+                        <div class="form-group">
+                            <label for="operation-type">Tipo de Operação:</label>
+                            <select id="operation-type" onchange="updateLoopForm()">
+                                <option value="irrigacao">Sistema de Irrigação</option>
+                                <option value="aplicacao">Aplicação de Defensivos</option>
+                                <option value="colheita">Cronograma de Colheita</option>
+                                <option value="monitoramento">Monitoramento de Culturas</option>
+                            </select>
+                        </div>
+                        
+                        <div id="loop-form">
+                            <div class="form-group">
+                                <label for="dias-sem-chuva">Dias sem chuva:</label>
+                                <input type="number" id="dias-sem-chuva" value="5" min="1" max="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="umidade-solo">Umidade do solo (%):</label>
+                                <input type="number" id="umidade-solo" value="40" min="0" max="100">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="executeLoopLogic()">▶️ Executar Lógica</button>
+                        
+                        <div id="loop-results" class="results-container">
+                            <!-- Resultados serão exibidos aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3><i class="fas fa-code"></i> Código Python - Loops e Decisões</h3>
+                        <button class="copy-btn" onclick="copyCode('loop-code')">📋 Copiar</button>
+                    </div>
+                    <pre><code id="loop-code"># FIAP Farm - Rotinas de Loop e Decisão
+import datetime
+import random
+
+class FarmAutomation:
+    def __init__(self):
+        self.culturas = {
+            'laranja': {'irrigacao_dias': 3, 'colheita_mes': [5, 6, 7, 8, 9]},
+            'cana': {'irrigacao_dias': 7, 'colheita_mes': [4, 5, 6, 7, 8, 9, 10, 11]},
+            'milho': {'irrigacao_dias': 2, 'colheita_mes': [3, 4, 5]}
+        }
+    
+    def sistema_irrigacao(self, cultura, dias_sem_chuva, umidade_solo):
+        """Sistema de decisão para irrigação"""
+        print("=== SISTEMA DE IRRIGAÇÃO ===")
+        
+        # Loop através das condições
+        for dia in range(1, dias_sem_chuva + 1):
+            print(f"\nDia {dia}:")
+            
+            # Decisão baseada em múltiplas condições
+            if cultura in self.culturas:
+                intervalo = self.culturas[cultura]['irrigacao_dias']
+                
+                # Estrutura de decisão aninhada
+                if dia % intervalo == 0:  # Dia de irrigação programada
+                    if umidade_solo < 30:
+                        decisao = "IRRIGAÇÃO URGENTE"
+                        quantidade = 50
+                    elif umidade_solo < 50:
+                        decisao = "IRRIGAÇÃO NORMAL"
+                        quantidade = 30
+                    else:
+                        decisao = "IRRIGAÇÃO LEVE"
+                        quantidade = 15
+                else:
+                    if umidade_solo < 20:
+                        decisao = "IRRIGAÇÃO EMERGENCIAL"
+                        quantidade = 40
+                    else:
+                        decisao = "SEM IRRIGAÇÃO"
+                        quantidade = 0
+                
+                print(f"  Cultura: {cultura.title()}")
+                print(f"  Umidade: {umidade_solo}%")
+                print(f"  Decisão: {decisao}")
+                print(f"  Quantidade: {quantidade}L/m²")
+                
+                # Simula mudança na umidade
+                if quantidade > 0:
+                    umidade_solo = min(100, umidade_solo + (quantidade * 0.8))
+                else:
+                    umidade_solo = max(10, umidade_solo - random.randint(3, 8))
+
+# Exemplo de uso
+if __name__ == "__main__":
+    automation = FarmAutomation()
+    automation.sistema_irrigacao('laranja', 7, 25)</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 7: Estatísticas R -->
+            <div class="tab-panel" id="estatisticas">
+                <div class="panel-header">
+                    <h2><i class="fas fa-chart-line"></i> Estatísticas com R</h2>
+                    <p>Calcule estatísticas básicas como média, desvio padrão e análises de dados da fazenda</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="stats-operations">
+                        <div class="form-group">
+                            <label for="stats-dataset">Conjunto de Dados:</label>
+                            <select id="stats-dataset" onchange="updateStatsForm()">
+                                <option value="producao">Produção por Safra</option>
+                                <option value="precipitacao">Precipitação Mensal</option>
+                                <option value="temperatura">Temperatura Diária</option>
+                                <option value="custos">Custos Operacionais</option>
+                            </select>
+                        </div>
+                        
+                        <div id="stats-form">
+                            <div class="form-group">
+                                <label>Dados de Produção (ton/ha):</label>
+                                <div class="input-grid">
+                                    <input type="number" placeholder="25.2" class="stats-input">
+                                    <input type="number" placeholder="28.1" class="stats-input">
+                                    <input type="number" placeholder="24.8" class="stats-input">
+                                    <input type="number" placeholder="26.5" class="stats-input">
+                                    <input type="number" placeholder="27.3" class="stats-input">
+                                    <input type="number" placeholder="25.9" class="stats-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="calculateStatistics()">📊 Calcular Estatísticas</button>
+                        
+                        <div id="stats-results" class="results-container">
+                            <!-- Resultados serão exibidos aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3><i class="fas fa-code"></i> Código R - Estatísticas Básicas</h3>
+                        <button class="copy-btn" onclick="copyCode('stats-r-code')">📋 Copiar</button>
+                    </div>
+                    <pre><code id="stats-r-code"># FIAP Farm - Análise Estatística com R
+# Estatísticas Básicas para Dados Agrícolas
+
+# Carregamento de bibliotecas
+library(stats)
+library(graphics)
+
+# Função principal para análise estatística
+analise_estatistica_fazenda <- function() {
+  cat("=== FIAP FARM - ANÁLISE ESTATÍSTICA ===\n\n")
+  
+  # Dados de produção (toneladas por hectare)
+  producao_laranja <- c(25.2, 28.1, 24.8, 26.5, 27.3, 25.9, 26.8, 24.2, 27.1, 25.6)
+  producao_cana <- c(85.2, 88.1, 82.5, 86.3, 84.7, 87.2, 83.9, 85.8, 86.5, 84.1)
+  producao_milho <- c(8.7, 9.2, 8.1, 8.9, 9.5, 8.3, 8.8, 9.1, 8.6, 9.0)
+  
+  # Dados de precipitação mensal (mm)
+  precipitacao <- c(120, 95, 180, 220, 85, 45, 30, 25, 60, 140, 165, 200)
+  
+  # === ANÁLISE DE PRODUÇÃO ===
+  cat("📊 ANÁLISE DE PRODUÇÃO\n")
+  cat("========================\n\n")
+  
+  # Estatísticas para Laranja
+  cat("🍊 LARANJA:\n")
+  cat(sprintf("Média: %.2f ton/ha\n", mean(producao_laranja)))
+  cat(sprintf("Mediana: %.2f ton/ha\n", median(producao_laranja)))
+  cat(sprintf("Desvio Padrão: %.2f ton/ha\n", sd(producao_laranja)))
+  cat(sprintf("Variância: %.2f\n", var(producao_laranja)))
+  cat(sprintf("Coef. Variação: %.2f%%\n", (sd(producao_laranja)/mean(producao_laranja))*100))
+  cat(sprintf("Mínimo: %.2f ton/ha\n", min(producao_laranja)))
+  cat(sprintf("Máximo: %.2f ton/ha\n", max(producao_laranja)))
+  
+  # === ANÁLISE CLIMÁTICA ===
+  cat("\n🌤️ ANÁLISE CLIMÁTICA\n")
+  cat("=====================\n\n")
+  
+  # Precipitação
+  cat("💧 PRECIPITAÇÃO MENSAL:\n")
+  cat(sprintf("Média: %.2f mm\n", mean(precipitacao)))
+  cat(sprintf("Mediana: %.2f mm\n", median(precipitacao)))
+  cat(sprintf("Desvio Padrão: %.2f mm\n", sd(precipitacao)))
+  cat(sprintf("Total Anual: %.2f mm\n", sum(precipitacao)))
+  
+  cat("\n=== FIM DA ANÁLISE ===\n")
+}
+
+# Executar análise principal
+analise_estatistica_fazenda()</code></pre>
+                </div>
+            </div>
+
+            <!-- Aba 8: API Meteorológica R -->
+            <div class="tab-panel" id="meteorologia">
+                <div class="panel-header">
+                    <h2><i class="fas fa-cloud-sun"></i> API Meteorológica com R</h2>
+                    <p>Conecte-se a APIs meteorológicas para obter dados climáticos em tempo real</p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="weather-operations">
+                        <div class="form-group">
+                            <label for="weather-location">Localização:</label>
+                            <select id="weather-location">
+                                <option value="sao_miguel_arcanjo">São Miguel Arcanjo, SP</option>
+                                <option value="itirapua">Itirapuã, SP</option>
+                                <option value="custom">Localização Personalizada</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="weather-period">Período:</label>
+                            <select id="weather-period">
+                                <option value="current">Atual</option>
+                                <option value="forecast">Previsão 7 dias</option>
+                                <option value="historical">Histórico 30 dias</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="fetchWeatherData()">🌤️ Buscar Dados</button>
+                        
+                        <div id="weather-results" class="results-container">
+                            <!-- Resultados serão exibidos aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3><i class="fas fa-code"></i> Código R - API Meteorológica</h3>
+                        <button class="copy-btn" onclick="copyCode('weather-r-code')">📋 Copiar</button>
+                    </div>
+                    <pre><code id="weather-r-code"># FIAP Farm - Integração com API Meteorológica
+# Coleta e processamento de dados climáticos
+
+# Instalação e carregamento de bibliotecas necessárias
+# install.packages(c("httr", "jsonlite", "lubridate"))
+library(httr)
+library(jsonlite)
+library(lubridate)
+
+# Classe para gerenciar dados meteorológicos
+WeatherAPI <- function() {
+  # API Key gratuita do OpenWeatherMap (substitua pela sua)
+  api_key <- "SUA_API_KEY_AQUI"
+  base_url <- "http://api.openweathermap.org/data/2.5"
+  
+  # Coordenadas das fazendas
+  fazendas_coords <- list(
+    "sao_miguel_arcanjo" = list(lat = -23.8775, lon = -47.9969),
+    "itirapua" = list(lat = -23.7234, lon = -47.8456)
+  )
+  
+  list(
+    # Função para obter dados meteorológicos atuais
+    get_current_weather = function(location) {
+      cat("=== DADOS METEOROLÓGICOS ATUAIS ===\n\n")
+      
+      if(location %in% names(fazendas_coords)) {
+        coords <- fazendas_coords[[location]]
+        lat <- coords$lat
+        lon <- coords$lon
+      } else {
+        cat("❌ Localização não encontrada!\n")
+        return(NULL)
+      }
+      
+      # Construir URL da API
+      url <- sprintf("%s/weather?lat=%f&lon=%f&appid=%s&units=metric&lang=pt",
+                     base_url, lat, lon, api_key)
+      
+      # Fazer requisição HTTP
+      tryCatch({
+        response <- GET(url)
+        
+        if(status_code(response) == 200) {
+          data <- fromJSON(content(response, "text"))
+          
+          # Processar e exibir dados
+          cat(sprintf("📍 Localização: %s\n", data$name))
+          cat(sprintf("🌡️ Temperatura: %.1f°C\n", data$main$temp))
+          cat(sprintf("💧 Umidade: %d%%\n", data$main$humidity))
+          cat(sprintf("🌬️ Pressão: %d hPa\n", data$main$pressure))
+          cat(sprintf("💨 Vento: %.1f m/s\n", data$wind$speed))
+          cat(sprintf("🌤️ Condição: %s\n", data$weather[[1]]$description))
+          
+          # Análise agrícola
+          cat("\n=== ANÁLISE AGRÍCOLA ===\n")
+          
+          # Condições para irrigação
+          if(data$main$humidity < 60) {
+            cat("💧 Umidade baixa - Considerar irrigação\n")
+          }
+          
+          # Condições para aplicação de defensivos
+          if(data$wind$speed > 3) {
+            cat("💨 Vento forte - Evitar aplicação de defensivos\n")
+          } else {
+            cat("✅ Condições favoráveis para aplicação\n")
+          }
+          
+          return(data)
+        } else {
+          cat(sprintf("❌ Erro na API: %d\n", status_code(response)))
+          return(NULL)
+        }
+      }, error = function(e) {
+        cat(sprintf("❌ Erro de conexão: %s\n", e$message))
+        return(NULL)
+      })
+    }
+  )
+}
+
+# Exemplo de uso
+weather_api <- WeatherAPI()
+current_weather <- weather_api$get_current_weather("sao_miguel_arcanjo")
+
+cat("\n=== INTEGRAÇÃO CONCLUÍDA ===\n")</code></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

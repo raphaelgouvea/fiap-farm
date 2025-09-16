@@ -1,0 +1,22 @@
+# FIAP Farm - Dependências Python
+# FarmTech Solutions
+
+# Biblioteca padrão do Python (já incluídas)
+# json - Para manipulação de dados JSON
+# math - Para cálculos matemáticos
+# typing - Para type hints
+
+# Nota: Este projeto foi desenvolvido usando apenas bibliotecas padrão do Python
+# para garantir máxima compatibilidade e facilidade de instalação.
+
+# Se desejar adicionar funcionalidades extras no futuro, considere:
+# pandas>=1.3.0          # Para análise de dados avançada
+# numpy>=1.21.0          # Para cálculos numéricos
+# matplotlib>=3.4.0      # Para gráficos
+# requests>=2.25.0       # Para APIs HTTP
+# sqlite3                # Para banco de dados (já incluído no Python)
+
+# Para executar o projeto:
+# python fiap_farm.py
+
+# Versão mínima do Python recomendada: 3.7+
